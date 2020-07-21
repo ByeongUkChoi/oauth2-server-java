@@ -14,12 +14,14 @@ public class AuthorizationCodeGrantTest {
         AuthorizationRequestDto authorizationRequestDto = new AuthorizationRequestDto();
         // TODO: test 값 넣어주기
 
+        // TODO: repository를 Mock 객체로 생성하여 주입하기
+
         // 토큰 발급
         AuthorizationCodeGrant authorizationCodeGrant = new AuthorizationCodeGrant();
         TokenDto tokenDto = authorizationCodeGrant.issueToken(authorizationRequestDto);
 
         // 타입 검증
-        Assertions.assertSame(tokenDto, new TokenDto());
+        //Assertions.assertSame(tokenDto, new TokenDto());
 
         // TODO: 값 검증
 
