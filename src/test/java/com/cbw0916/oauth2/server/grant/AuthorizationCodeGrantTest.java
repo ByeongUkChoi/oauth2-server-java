@@ -9,6 +9,12 @@ public class AuthorizationCodeGrantTest {
 
     @Test
     public void issueToken() {
+        /**
+         *  토큰 발급
+         *  grant_type, client_id, redirect_uri, code, client_secret
+         *  토큰 갱신
+         *  grant_type, client_id, refresh_token, client_secret
+         */
 
         // authorization code 용 request 객체 생성
         AuthorizationRequestDto authorizationRequestDto = new AuthorizationRequestDto();
