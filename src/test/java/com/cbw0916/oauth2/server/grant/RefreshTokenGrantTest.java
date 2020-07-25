@@ -10,18 +10,18 @@ public class RefreshTokenGrantTest {
     @Test
     public void issueToken() {
 
-        // authorization code 용 request 객체 생성
         AuthorizationRequestDto authorizationRequestDto = new AuthorizationRequestDto();
-        // TODO: test 값 넣어주기
+        // TODO: test
 
-        // 토큰 발급
+        // issue token
         AuthorizationCodeGrant authorizationCodeGrant = new AuthorizationCodeGrant();
         TokenDto tokenDto = authorizationCodeGrant.issueToken(authorizationRequestDto);
 
-        // 타입 검증
-        Assertions.assertSame(tokenDto, new TokenDto());
+        // verify
+        Assertions.assertSame(tokenDto, TokenDto.builder()
+                .build());
 
-        // TODO: 값 검증
+        // TODO: verify
 
     }
 }

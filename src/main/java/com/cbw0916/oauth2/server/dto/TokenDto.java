@@ -1,5 +1,8 @@
 package com.cbw0916.oauth2.server.dto;
 
+import lombok.Builder;
+import lombok.Getter;
+
 /**
  * 클라이언트로 반환되는 토큰 정보 객체
  *
@@ -16,6 +19,8 @@ package com.cbw0916.oauth2.server.dto;
  * refresh_token_expires_in
  * 5183999
  */
+@Getter
+@Builder
 public class TokenDto {
     private String tokenType;
     private String accessToken;

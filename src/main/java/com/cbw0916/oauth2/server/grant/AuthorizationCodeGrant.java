@@ -5,6 +5,7 @@ import com.cbw0916.oauth2.server.dto.TokenDto;
 import com.cbw0916.oauth2.server.repository.AccessTokenRepository;
 import com.cbw0916.oauth2.server.repository.AuthorizationCodeRepository;
 import com.cbw0916.oauth2.server.repository.RefreshTokenRepository;
+import jdk.nashorn.internal.parser.Token;
 
 public class AuthorizationCodeGrant extends AbstractGrant {
 
@@ -14,6 +15,10 @@ public class AuthorizationCodeGrant extends AbstractGrant {
 
     @Override
     public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) {
-        return null;
+        // TODO: test
+        TokenDto tokenDto = TokenDto.builder()
+                .accessToken("abc")
+                .build();
+        return tokenDto;
     }
 }
