@@ -1,7 +1,10 @@
-package com.cbw0916.oauth2.server.repository;
+package com.byeongukchoi.oauth2.server.repository;
 
-import com.cbw0916.oauth2.server.entity.AuthorizationCode;
+import com.byeongukchoi.oauth2.server.entity.AuthorizationCode;
 
+/**
+ * AuthorizationCodeRepository interface
+ */
 public interface AuthorizationCodeRepository {
     public AuthorizationCode getNewCode();
     public AuthorizationCode findByCodeAndClientId(String code, String clientId);

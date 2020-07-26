@@ -10,3 +10,7 @@
 스프링 시큐리티 oauth2 스키마  
 [spring security oauth2](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/test/resources/schema.sql)
 
+#### 2020. 07. 26
+maven repository에 등록하기 위해 gradle 설정을 바꾸고 bintray에 가입하여 패키지를 만들었다.  
+등록이 완료되면 간단하게 블로그에 정리해두자.  
+

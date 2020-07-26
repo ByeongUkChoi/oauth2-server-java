@@ -1,10 +1,9 @@
-package com.cbw0916.oauth2.server.dto;
+package com.byeongukchoi.oauth2.server.dto;
 
 import lombok.Builder;
 import lombok.Getter;
 
 /**
- * 클라이언트로 반환되는 토큰 정보 객체
  *
  * Access Token
  * Kv2gk5ZV3Hpc2En6KGeu0No9CvzcEDl9yM6Q3Qo9c04AAAFzZLkR5w

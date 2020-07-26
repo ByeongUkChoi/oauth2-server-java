@@ -1,7 +1,10 @@
-package com.cbw0916.oauth2.server.repository;
+package com.byeongukchoi.oauth2.server.repository;
 
-import com.cbw0916.oauth2.server.entity.RefreshToken;
+import com.byeongukchoi.oauth2.server.entity.RefreshToken;
 
+/**
+ * RefreshTokenRepository interface
+ */
 public interface RefreshTokenRepository {
     public RefreshToken getNewToken();
     public void saveNewToken(RefreshToken refreshToken);

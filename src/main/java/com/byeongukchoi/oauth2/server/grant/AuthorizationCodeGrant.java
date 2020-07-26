@@ -1,14 +1,17 @@
-package com.cbw0916.oauth2.server.grant;
+package com.byeongukchoi.oauth2.server.grant;
 
-import com.cbw0916.oauth2.server.dto.AuthorizationRequestDto;
-import com.cbw0916.oauth2.server.dto.TokenDto;
-import com.cbw0916.oauth2.server.entity.AccessToken;
-import com.cbw0916.oauth2.server.entity.AuthorizationCode;
-import com.cbw0916.oauth2.server.entity.RefreshToken;
-import com.cbw0916.oauth2.server.repository.AccessTokenRepository;
-import com.cbw0916.oauth2.server.repository.AuthorizationCodeRepository;
-import com.cbw0916.oauth2.server.repository.RefreshTokenRepository;
+import com.byeongukchoi.oauth2.server.repository.AccessTokenRepository;
+import com.byeongukchoi.oauth2.server.dto.AuthorizationRequestDto;
+import com.byeongukchoi.oauth2.server.dto.TokenDto;
+import com.byeongukchoi.oauth2.server.entity.AccessToken;
+import com.byeongukchoi.oauth2.server.entity.AuthorizationCode;
+import com.byeongukchoi.oauth2.server.entity.RefreshToken;
+import com.byeongukchoi.oauth2.server.repository.AuthorizationCodeRepository;
+import com.byeongukchoi.oauth2.server.repository.RefreshTokenRepository;
 
+/**
+ * AuthorizationCodeGrant
+ */
 public class AuthorizationCodeGrant extends AbstractGrant {
 
     private AuthorizationCodeRepository authorizationCodeRepository;
