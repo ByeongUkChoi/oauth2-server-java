@@ -9,5 +9,5 @@ public abstract class AbstractGrant {
      * 토큰 발급
      * @return
      */
-    public abstract TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto);
+    public abstract TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) throws Exception;
 }

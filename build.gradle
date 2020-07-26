@@ -1,12 +1,31 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9'
+    }
+}
+
 plugins {
     id 'java'
 }
+
+apply plugin: 'com.novoda.bintray-release'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+publish {
+    userOrg = 'cbw0916'
+    groupId = 'com.library'
+    artifactId = 'oauth2-server-java'
+    publishVersion = '1.0.0'
+    desc = 'A library for implementing an OAuth2 Server in java'
+    website = 'https://github.com/ByeongUkChoi/oauth2-server-java'
 }
 
 dependencies {
@@ -21,6 +40,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.4.4'
 
+    // https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin
+    compileOnly group: 'org.apache.maven.plugins', name: 'maven-javadoc-plugin', version: '3.2.0'
 }
 
 test {
