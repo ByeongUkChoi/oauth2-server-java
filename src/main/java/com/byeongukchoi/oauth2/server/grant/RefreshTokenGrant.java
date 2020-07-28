@@ -34,6 +34,9 @@ public class RefreshTokenGrant extends AbstractGrant {
 
         // 1-1. get refresh token
         RefreshToken refreshToken = refreshTokenRepository.findByTokenAndClientId(authorizationRequestDto.getRefreshToken(), authorizationRequestDto.getClientId());
+        if(refreshToken == null) {
+            throw new Exception("Not Found Token");
+        }
 
         // 1-2. check expired
         if(refreshToken.isExpired()) {
