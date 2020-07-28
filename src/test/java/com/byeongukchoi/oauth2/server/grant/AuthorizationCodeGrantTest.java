@@ -21,8 +21,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class) // open mocks
 public class AuthorizationCodeGrantTest {
 
-    private final String GRANT_TYPE = "authorization_code";
-
     private final String CLIENT_ID = "test-client-id";
     private final String REDIRECT_URI = "test-redirect-uri";
 
@@ -82,7 +80,6 @@ public class AuthorizationCodeGrantTest {
         // issue token
         AuthorizationCodeGrant authorizationCodeGrant = new AuthorizationCodeGrant(authorizationCodeRepository, accessTokenRepository, refreshTokenRepository);
         TokenDto tokenDto = authorizationCodeGrant.issueToken(authorizationRequestDto);
-
 
         // expected
         TokenDto expectedTokenDto = TokenDto.builder()

@@ -39,7 +39,7 @@ public class AuthorizationCodeGrant extends AbstractGrant {
         // 1-1. get authorization code
         AuthorizationCode authorizationCode = authorizationCodeRepository.findByCodeAndClientId(authorizationRequestDto.getCode(), authorizationRequestDto.getClientId());
 
-        // TODO: check expired
+        // 1-2. check expired
         if(authorizationCode.isExpired()) {
             throw new Exception("Expired Code");
         }

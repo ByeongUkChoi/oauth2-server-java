@@ -13,7 +13,7 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 archivesBaseName = 'oauth2-server-java'
-group = 'com.byeongukchoi'
+group = 'com.github.byeongukchoi'
 version = '0.0.1'
 description = 'OAuth2 server library'
 
@@ -59,9 +59,9 @@ publishing {
             from components.java
             artifact sourcesJar
             artifact javadocJar
-            groupId 'com.byeongukchoi'
-            artifactId 'oauth2-server-java'
-            version '0.0.1'
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'A library for implementing an OAuth2 Server in java')
@@ -72,17 +72,6 @@ publishing {
         }
     }
 }
-
-//publishing {
-//    publications {
-//        MyPublication(MavenPublication) {
-//            from components.java
-//            groupId = project.group
-//            artifactId = project.archivesBaseName
-//            version = project.version
-//        }
-//    }
-//}
 
 bintray {
     user = project.property('bintray_user')
