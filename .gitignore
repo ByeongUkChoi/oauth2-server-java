@@ -4,5 +4,5 @@
 /build/
 /build/classes/java/main/
 /build/classes/java/test/
-# build.gradle에서 사용하는 중요 정보가 담겨있음 (id, api key)
+# build.gradle에서 사용하는 중요 정보가 담겨있음 (id, api key, password)
 gradle.properties

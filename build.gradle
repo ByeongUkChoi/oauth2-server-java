@@ -74,8 +74,8 @@ publishing {
 }
 
 bintray {
-    user = project.property('bintray_user')
-    key = project.property('bintray_key')
+    user = project.property('bintray.user')
+    key = project.property('bintray.key')
     publications = ['MyPublication']
     publish = true
     override = true
@@ -89,6 +89,10 @@ bintray {
             name = project.version
             desc = project.description
             released  = new Date()
+            gpg {
+                sign = true
+                passphrase = project.property("bintray.gpgPassword")
+            }
         }
     }
 }
