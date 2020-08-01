@@ -16,7 +16,7 @@ The library is available on both Maven Central and Bintray, and the Javadoc is p
 
 ### Gradle
 ```gradle
-implementation 'com.github.byeongukchoi:oauth2-server-java:0.0.1'
+implementation 'com.github.byeongukchoi:oauth2-server-java:0.0.2'
 ```
 
 ## 개발 일지
