@@ -7,9 +7,9 @@ import lombok.Setter;
 /**
  * AuthorizationRequestDto
  */
-@Builder
 @Getter
 @Setter
+@Builder
 public class AuthorizationRequestDto {
     private String grantType;
     private String clientId;
