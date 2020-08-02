@@ -1,11 +1,13 @@
 package com.byeongukchoi.oauth2.server.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * AuthorizationRequestDto
  */
+@Builder
 @Getter
 @Setter
 public class AuthorizationRequestDto {
