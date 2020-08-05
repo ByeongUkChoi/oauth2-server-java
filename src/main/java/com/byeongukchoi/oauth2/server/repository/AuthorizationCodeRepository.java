@@ -8,4 +8,5 @@ import com.byeongukchoi.oauth2.server.entity.AuthorizationCode;
 public interface AuthorizationCodeRepository {
     public AuthorizationCode getNewCode();
     public AuthorizationCode findByCodeAndClientId(String code, String clientId);
+    public void save(AuthorizationCode authorizationCode);
 }
