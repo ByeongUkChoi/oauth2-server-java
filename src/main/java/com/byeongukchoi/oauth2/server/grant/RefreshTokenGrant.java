@@ -61,7 +61,7 @@ public class RefreshTokenGrant extends AbstractGrant {
                 .build();
 
         // 5. expire refresh token
-        refreshTokenRepository.expireToken(refreshToken.getToken());
+        refreshTokenRepository.expireToken(refreshToken);
 
 
         return tokenDto;

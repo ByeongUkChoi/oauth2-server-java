@@ -9,5 +9,5 @@ public interface RefreshTokenRepository {
     public RefreshToken getNewToken();
     public void saveNewToken(RefreshToken refreshToken);
     public RefreshToken findByTokenAndClientId(String refreshToken, String clientId);
-    public void expireToken(String token);
+    public void expireToken(RefreshToken refreshToken);
 }

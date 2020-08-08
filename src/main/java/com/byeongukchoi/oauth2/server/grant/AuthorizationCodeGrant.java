@@ -65,7 +65,7 @@ public class AuthorizationCodeGrant extends AbstractGrant {
                 .build();
 
         // 5. expire authorization code
-        authorizationCodeRepository.expireCode(authorizationCode.getCode());
+        authorizationCodeRepository.expireCode(authorizationCode);
 
         return tokenDto;
     }
