@@ -47,9 +47,6 @@ public class AuthorizationCodeGrant extends AbstractGrant {
             throw new Exception("Expired Code");
         }
 
-        // TODO: 1-3. verify client secret
-        // TODO: client.verifyClientSecret();
-
         // 2. create access token & refresh token
         AccessToken accessToken = accessTokenRepository.getNewToken();
         RefreshToken refreshToken = refreshTokenRepository.getNewToken();
@@ -58,8 +55,7 @@ public class AuthorizationCodeGrant extends AbstractGrant {
         accessTokenRepository.saveNewToken(accessToken);
         refreshTokenRepository.saveNewToken(refreshToken);
 
-        // 4. return token dto from access token and refresh token
-
+        // 4. create token dto from access token and refresh token
         // TODO: test
         TokenDto tokenDto = TokenDto.builder()
                 .accessToken(accessToken.getToken())
@@ -67,6 +63,10 @@ public class AuthorizationCodeGrant extends AbstractGrant {
                 .refreshToken(refreshToken.getToken())
                 //.refreshTokenExpiresIn(refreshToken.getExpiresIn())
                 .build();
+
+        // 5. expire authorization code
+        authorizationCodeRepository.expireCode(authorizationCode.getCode());
+
         return tokenDto;
     }
 }
