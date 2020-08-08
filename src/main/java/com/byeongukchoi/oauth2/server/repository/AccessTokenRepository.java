@@ -6,6 +6,6 @@ import com.byeongukchoi.oauth2.server.entity.AccessToken;
  * AccessTokenRepository interface
  */
 public interface AccessTokenRepository {
-    public AccessToken getNewToken();
+    public AccessToken getNewToken(String clientId, String username);
     public void saveNewToken(AccessToken accessToken);
 }
