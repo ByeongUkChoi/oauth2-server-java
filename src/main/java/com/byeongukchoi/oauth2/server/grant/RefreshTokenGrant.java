@@ -44,8 +44,8 @@ public class RefreshTokenGrant extends AbstractGrant {
         }
 
         // 2. create access token & refresh token
-        AccessToken accessToken = accessTokenRepository.getNewToken();
-        RefreshToken newRefreshToken = refreshTokenRepository.getNewToken();
+        AccessToken accessToken = accessTokenRepository.getNewToken(authorizationRequestDto);
+        RefreshToken newRefreshToken = refreshTokenRepository.getNewToken(authorizationRequestDto, accessToken.getToken());
 
         // 3. save access token & refresh token
         accessTokenRepository.saveNewToken(accessToken);

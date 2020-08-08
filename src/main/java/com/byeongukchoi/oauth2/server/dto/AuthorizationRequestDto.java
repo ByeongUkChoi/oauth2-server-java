@@ -13,6 +13,7 @@ import lombok.Setter;
 public class AuthorizationRequestDto {
     private String grantType;
     private String clientId;
+    private String username;
     private String redirectUri;
     private String code;
     private String clientSecret;
