@@ -12,15 +12,15 @@ import com.byeongukchoi.oauth2.server.repository.RefreshTokenRepository;
  */
 public class RefreshTokenGrant extends AbstractGrant {
 
+    private AccessTokenRepository<AccessToken, String> accessTokenRepository;
+    private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
+
     public RefreshTokenGrant(
-            AccessTokenRepository accessTokenRepository,
-            RefreshTokenRepository refreshTokenRepository) {
+            AccessTokenRepository<AccessToken, String> accessTokenRepository,
+            RefreshTokenRepository<RefreshToken, String> refreshTokenRepository) {
         this.accessTokenRepository = accessTokenRepository;
         this.refreshTokenRepository = refreshTokenRepository;
     }
-
-    private AccessTokenRepository<AccessToken, String> accessTokenRepository;
-    private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     /**
      * authorization_code
