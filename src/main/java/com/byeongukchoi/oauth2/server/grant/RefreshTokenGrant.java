@@ -52,12 +52,11 @@ public class RefreshTokenGrant extends AbstractGrant {
         refreshTokenRepository.saveNewToken(newRefreshToken);
 
         // 4. create token dto from access token and refresh token
-        // TODO: test
         TokenDto tokenDto = TokenDto.builder()
                 .accessToken(accessToken.getToken())
-                //.expiresIn(accessToken.getExpiresIn())
+                .expiresIn(accessToken.getExpiresIn())
                 .refreshToken(newRefreshToken.getToken())
-                //.refreshTokenExpiresIn(refreshToken.getExpiresIn())
+                .refreshTokenExpiresIn(refreshToken.getExpiresIn())
                 .build();
 
         // 5. expire refresh token

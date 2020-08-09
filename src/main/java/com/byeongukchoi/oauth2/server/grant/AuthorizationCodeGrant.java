@@ -56,12 +56,11 @@ public class AuthorizationCodeGrant extends AbstractGrant {
         refreshTokenRepository.saveNewToken(refreshToken);
 
         // 4. create token dto from access token and refresh token
-        // TODO: test
         TokenDto tokenDto = TokenDto.builder()
                 .accessToken(accessToken.getToken())
-                //.expiresIn(accessToken.getExpiresIn())
+                .expiresIn(accessToken.getExpiresIn())
                 .refreshToken(refreshToken.getToken())
-                //.refreshTokenExpiresIn(refreshToken.getExpiresIn())
+                .refreshTokenExpiresIn(refreshToken.getExpiresIn())
                 .build();
 
         // 5. expire authorization code
