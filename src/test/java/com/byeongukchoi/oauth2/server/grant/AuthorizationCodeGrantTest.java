@@ -13,9 +13,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
@@ -43,11 +40,11 @@ public class AuthorizationCodeGrantTest {
     private AuthorizationCode authorizationCode;
 
     @Mock
-    private AuthorizationCodeRepository authorizationCodeRepository;
+    private AuthorizationCodeRepository<AuthorizationCode, String> authorizationCodeRepository;
     @Mock
-    private AccessTokenRepository accessTokenRepository;
+    private AccessTokenRepository<AccessToken, String> accessTokenRepository;
     @Mock
-    private RefreshTokenRepository refreshTokenRepository;
+    private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     /**
      * authorization_code
@@ -73,12 +70,12 @@ public class AuthorizationCodeGrantTest {
         // accessToken
         when(accessToken.getToken()).thenReturn(ACCESS_TOKEN);
         // accessTokenRepository
-        when(accessTokenRepository.getNewToken()).thenReturn(accessToken);
+        when(accessTokenRepository.getNewToken(authorizationRequestDto)).thenReturn(accessToken);
 
         // refreshToken
         when(refreshToken.getToken()).thenReturn(REFRESH_TOKEN);
         // accessTokenRepository
-        when(refreshTokenRepository.getNewToken()).thenReturn(refreshToken);
+        when(refreshTokenRepository.getNewToken(authorizationRequestDto, accessToken.getToken())).thenReturn(refreshToken);
 
         // issue token
         AuthorizationCodeGrant authorizationCodeGrant = new AuthorizationCodeGrant(authorizationCodeRepository, accessTokenRepository, refreshTokenRepository);

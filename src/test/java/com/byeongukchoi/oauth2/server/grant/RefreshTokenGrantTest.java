@@ -34,9 +34,9 @@ public class RefreshTokenGrantTest {
     private RefreshToken refreshToken;
 
     @Mock
-    private AccessTokenRepository accessTokenRepository;
+    private AccessTokenRepository<AccessToken, String> accessTokenRepository;
     @Mock
-    private RefreshTokenRepository refreshTokenRepository;
+    private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     @Test
     public void issueTokenSuccess() throws Exception {
@@ -56,12 +56,12 @@ public class RefreshTokenGrantTest {
         // accessToken
         when(accessToken.getToken()).thenReturn(ACCESS_TOKEN);
         // accessTokenRepository
-        when(accessTokenRepository.getNewToken()).thenReturn(accessToken);
+        when(accessTokenRepository.getNewToken(authorizationRequestDto)).thenReturn(accessToken);
 
         // refreshToken
         when(refreshToken.getToken()).thenReturn(REFRESH_TOKEN);
         // accessTokenRepository
-        when(refreshTokenRepository.getNewToken()).thenReturn(refreshToken);
+        when(refreshTokenRepository.getNewToken(authorizationRequestDto, accessToken.getToken())).thenReturn(refreshToken);
 
         // issue token
         RefreshTokenGrant refreshTokenGrant = new RefreshTokenGrant(accessTokenRepository, refreshTokenRepository);

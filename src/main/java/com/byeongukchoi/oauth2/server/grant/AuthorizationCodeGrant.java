@@ -1,11 +1,11 @@
 package com.byeongukchoi.oauth2.server.grant;
 
-import com.byeongukchoi.oauth2.server.repository.AccessTokenRepository;
 import com.byeongukchoi.oauth2.server.dto.AuthorizationRequestDto;
 import com.byeongukchoi.oauth2.server.dto.TokenDto;
 import com.byeongukchoi.oauth2.server.entity.AccessToken;
 import com.byeongukchoi.oauth2.server.entity.AuthorizationCode;
 import com.byeongukchoi.oauth2.server.entity.RefreshToken;
+import com.byeongukchoi.oauth2.server.repository.AccessTokenRepository;
 import com.byeongukchoi.oauth2.server.repository.AuthorizationCodeRepository;
 import com.byeongukchoi.oauth2.server.repository.RefreshTokenRepository;
 
@@ -14,9 +14,9 @@ import com.byeongukchoi.oauth2.server.repository.RefreshTokenRepository;
  */
 public class AuthorizationCodeGrant extends AbstractGrant {
 
-    private AuthorizationCodeRepository authorizationCodeRepository;
-    private AccessTokenRepository accessTokenRepository;
-    private RefreshTokenRepository refreshTokenRepository;
+    private AuthorizationCodeRepository<AuthorizationCode, String> authorizationCodeRepository;
+    private AccessTokenRepository<AccessToken, String> accessTokenRepository;
+    private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     public AuthorizationCodeGrant(
             AuthorizationCodeRepository authorizationCodeRepository,

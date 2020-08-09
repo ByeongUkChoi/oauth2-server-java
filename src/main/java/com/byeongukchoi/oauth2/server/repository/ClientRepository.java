@@ -1,10 +1,8 @@
 package com.byeongukchoi.oauth2.server.repository;
 
-import com.byeongukchoi.oauth2.server.entity.Client;
-
 /**
  * ClientRepository interface
  */
-public interface ClientRepository {
-    public Client getOne(String id);
+public interface ClientRepository<T, ID> {
+    public T getOne(ID id);
 }
