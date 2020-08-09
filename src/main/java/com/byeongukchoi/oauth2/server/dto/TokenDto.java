@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
@@ -26,8 +27,10 @@ import lombok.Getter;
 public class TokenDto {
     private String tokenType;
     private String accessToken;
+    @Setter
     private int expiresIn;
     private String refreshToken;
+    @Setter
     private int refreshTokenExpiresIn;
     private String scope;
 }
