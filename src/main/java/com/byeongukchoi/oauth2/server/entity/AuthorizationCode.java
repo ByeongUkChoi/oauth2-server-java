@@ -5,5 +5,6 @@ package com.byeongukchoi.oauth2.server.entity;
  */
 public interface AuthorizationCode {
     public String getCode();
+    public String getUsername();
     public Boolean isExpired();
 }
