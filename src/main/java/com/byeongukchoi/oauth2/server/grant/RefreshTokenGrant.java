@@ -16,8 +16,8 @@ public class RefreshTokenGrant extends AbstractGrant {
     private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     public RefreshTokenGrant(
-            AccessTokenRepository<AccessToken, String> accessTokenRepository,
-            RefreshTokenRepository<RefreshToken, String> refreshTokenRepository) {
+            AccessTokenRepository accessTokenRepository,
+            RefreshTokenRepository refreshTokenRepository) {
         this.accessTokenRepository = accessTokenRepository;
         this.refreshTokenRepository = refreshTokenRepository;
     }
