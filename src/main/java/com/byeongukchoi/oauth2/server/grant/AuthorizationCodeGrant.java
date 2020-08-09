@@ -19,9 +19,9 @@ public class AuthorizationCodeGrant extends AbstractGrant {
     private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     public AuthorizationCodeGrant(
-            AuthorizationCodeRepository authorizationCodeRepository,
-            AccessTokenRepository accessTokenRepository,
-            RefreshTokenRepository refreshTokenRepository) {
+            AuthorizationCodeRepository<AuthorizationCode, String> authorizationCodeRepository,
+            AccessTokenRepository<AccessToken, String> accessTokenRepository,
+            RefreshTokenRepository<RefreshToken, String> refreshTokenRepository) {
         this.authorizationCodeRepository = authorizationCodeRepository;
         this.accessTokenRepository = accessTokenRepository;
         this.refreshTokenRepository = refreshTokenRepository;
