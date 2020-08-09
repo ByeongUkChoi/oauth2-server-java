@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
-version = '0.0.19'
+version = '0.0.20'
 description = 'OAuth2 server library'
 
 repositories {
