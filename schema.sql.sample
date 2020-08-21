@@ -3,6 +3,7 @@ CREATE TABLE oauth_clients (
   client_secret     VARCHAR(32),
   redirect_uri      VARCHAR(500),
   grant_types       VARCHAR(20),
+  username          VARCHAR(40)     NOT NULL
 );
 
 CREATE TABLE oauth_authorization_codes (
@@ -11,7 +12,7 @@ CREATE TABLE oauth_authorization_codes (
   username          VARCHAR(40)     NOT NULL,
   redirect_uri      VARCHAR(500),
   expired_at        TIMESTAMP       NOT NULL,
-  created_at        TIMESTAMP       NOT NULL,
+  created_at        TIMESTAMP       NOT NULL
 );
 
 CREATE TABLE oauth_access_tokens (
@@ -19,7 +20,7 @@ CREATE TABLE oauth_access_tokens (
   client_id         VARCHAR(32)     NOT NULL,
   username          VARCHAR(40)     NOT NULL,
   expired_at        TIMESTAMP       NOT NULL,
-  created_at        TIMESTAMP       NOT NULL,
+  created_at        TIMESTAMP       NOT NULL
 );
 
 CREATE TABLE oauth_refresh_tokens (
@@ -28,5 +29,5 @@ CREATE TABLE oauth_refresh_tokens (
   username          VARCHAR(40)     NOT NULL,
   access_token      VARCHAR(400),
   expired_at        TIMESTAMP       NOT NULL,
-  created_at        TIMESTAMP       NOT NULL,
+  created_at        TIMESTAMP       NOT NULL
 );
