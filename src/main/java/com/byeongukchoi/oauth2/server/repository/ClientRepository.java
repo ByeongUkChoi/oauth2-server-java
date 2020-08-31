@@ -7,4 +7,5 @@ import com.byeongukchoi.oauth2.server.entity.Client;
  */
 public interface ClientRepository<T extends Client, ID> {
     public T getOne(ID id);
+//    public T getNewCient(String name, String redirectUri, String username, boolean isClientSecret);
 }

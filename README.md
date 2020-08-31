@@ -9,15 +9,15 @@ The library is available on both Maven Central and Bintray, and the Javadoc is p
 <dependency>
   <groupId>com.github.byeongukchoi</groupId>
   <artifactId>oauth2-server-java</artifactId>
-  <version>0.0.9</version>
+  <version>0.0.23</version>
   <type>pom</type>
 </dependency>
 ```
 
 ### Gradle
 ```gradle
-implementation 'com.github.byeongukchoi:oauth2-server-java:0.0.9'
+implementation 'com.github.byeongukchoi:oauth2-server-java:0.0.23'
 ```
 
-## 개발 일지
+## 개발 일기
 [DevLog.md](https://github.com/ByeongUkChoi/oauth2-server-java/blob/master/DevLog.md)
