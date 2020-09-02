@@ -8,4 +8,5 @@ public interface RefreshToken {
     public String getUsername();
     public Boolean isExpired();
     public int getExpiresIn();
+    public String getClientId();
 }

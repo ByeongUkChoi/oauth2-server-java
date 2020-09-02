@@ -7,4 +7,5 @@ public interface AuthorizationCode {
     public String getCode();
     public String getUsername();
     public Boolean isExpired();
+    public String getClientId();
 }
