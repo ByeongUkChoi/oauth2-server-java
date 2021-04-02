@@ -1,6 +1,6 @@
-package com.byeongukchoi.oauth2.server.repository;
+package com.byeongukchoi.oauth2.server.domain.repository;
 
-import com.byeongukchoi.oauth2.server.entity.AuthorizationCode;
+import com.byeongukchoi.oauth2.server.domain.AuthorizationCode;
 
 /**
  * AuthorizationCodeRepository interface

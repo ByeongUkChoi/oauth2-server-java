@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
-version = '0.0.26'
+version = '0.0.27'
 description = 'OAuth2 server library'
 
 repositories {
@@ -88,10 +88,10 @@ bintray {
         version {
             name = project.version
             desc = project.description
-            released  = new Date()
+            released = new Date()
             gpg {
-                sign = true
-                passphrase = project.property("bintray.gpgPassword")
+                sign = false
+//                passphrase = project.property("bintray.gpgPassword")
             }
         }
     }

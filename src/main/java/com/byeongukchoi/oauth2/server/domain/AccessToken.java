@@ -1,4 +1,4 @@
-package com.byeongukchoi.oauth2.server.entity;
+package com.byeongukchoi.oauth2.server.domain;
 
 /**
  * AccessToken interface

@@ -1,11 +1,11 @@
-package com.byeongukchoi.oauth2.server.grant;
+package com.byeongukchoi.oauth2.server.application;
 
-import com.byeongukchoi.oauth2.server.dto.AuthorizationRequestDto;
-import com.byeongukchoi.oauth2.server.dto.TokenDto;
-import com.byeongukchoi.oauth2.server.entity.AccessToken;
-import com.byeongukchoi.oauth2.server.entity.RefreshToken;
-import com.byeongukchoi.oauth2.server.repository.AccessTokenRepository;
-import com.byeongukchoi.oauth2.server.repository.RefreshTokenRepository;
+import com.byeongukchoi.oauth2.server.application.dto.AuthorizationRequestDto;
+import com.byeongukchoi.oauth2.server.application.dto.TokenDto;
+import com.byeongukchoi.oauth2.server.domain.AccessToken;
+import com.byeongukchoi.oauth2.server.domain.RefreshToken;
+import com.byeongukchoi.oauth2.server.domain.repository.AccessTokenRepository;
+import com.byeongukchoi.oauth2.server.domain.repository.RefreshTokenRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

@@ -1,7 +1,7 @@
-package com.byeongukchoi.oauth2.server.grant;
+package com.byeongukchoi.oauth2.server.application;
 
-import com.byeongukchoi.oauth2.server.dto.AuthorizationRequestDto;
-import com.byeongukchoi.oauth2.server.dto.TokenDto;
+import com.byeongukchoi.oauth2.server.application.dto.AuthorizationRequestDto;
+import com.byeongukchoi.oauth2.server.application.dto.TokenDto;
 
 /**
  * AbstractGrant abstract class

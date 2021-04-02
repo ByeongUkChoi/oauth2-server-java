@@ -1,7 +1,7 @@
-package com.byeongukchoi.oauth2.server.repository;
+package com.byeongukchoi.oauth2.server.domain.repository;
 
-import com.byeongukchoi.oauth2.server.dto.AuthorizationRequestDto;
-import com.byeongukchoi.oauth2.server.entity.AccessToken;
+import com.byeongukchoi.oauth2.server.application.dto.AuthorizationRequestDto;
+import com.byeongukchoi.oauth2.server.domain.AccessToken;
 
 /**
  * AccessTokenRepository interface

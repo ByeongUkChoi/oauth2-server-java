@@ -1,6 +1,6 @@
-package com.byeongukchoi.oauth2.server.entity;
+package com.byeongukchoi.oauth2.server.domain;
 
-import com.byeongukchoi.oauth2.server.dto.AuthorizationRequestDto;
+import com.byeongukchoi.oauth2.server.application.dto.AuthorizationRequestDto;
 
 /**
  * Client interface

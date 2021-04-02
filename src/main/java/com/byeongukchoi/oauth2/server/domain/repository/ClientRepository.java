@@ -1,6 +1,6 @@
-package com.byeongukchoi.oauth2.server.repository;
+package com.byeongukchoi.oauth2.server.domain.repository;
 
-import com.byeongukchoi.oauth2.server.entity.Client;
+import com.byeongukchoi.oauth2.server.domain.Client;
 
 /**
  * ClientRepository interface

@@ -1,4 +1,4 @@
-package com.byeongukchoi.oauth2.server.dto;
+package com.byeongukchoi.oauth2.server.application.dto;
 
 import lombok.Builder;
 import lombok.Getter;

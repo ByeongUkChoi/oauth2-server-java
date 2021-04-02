@@ -1,4 +1,4 @@
-package com.byeongukchoi.oauth2.server.dto;
+package com.byeongukchoi.oauth2.server.application.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
