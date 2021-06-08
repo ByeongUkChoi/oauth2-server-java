@@ -4,17 +4,13 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.jfrog.bintray" version "1.8.5"
-}
-
 apply plugin: 'java'
 //apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
-version = '0.0.27'
+version = '0.0.28'
 description = 'OAuth2 server library'
 
 repositories {
@@ -68,30 +64,6 @@ publishing {
                 root.appendNode('name', 'oauth2-server-java')
                 root.appendNode('url', 'https://github.com/ByeongUkChoi/oauth2-server-java')
                 root.children().last() + pomConfig
-            }
-        }
-    }
-}
-
-bintray {
-    user = project.property('bintray.user')
-    key = project.property('bintray.key')
-    publications = ['MyPublication']
-    publish = true
-    override = true
-    pkg {
-        repo = 'library'
-        name = 'oauth2-server-java'
-        userOrg = 'cbw0916'
-        licenses = ['MIT']
-        vcsUrl = 'https://github.com/ByeongUkChoi/oauth2-server-java.git'
-        version {
-            name = project.version
-            desc = project.description
-            released = new Date()
-            gpg {
-                sign = false
-//                passphrase = project.property("bintray.gpgPassword")
             }
         }
     }
