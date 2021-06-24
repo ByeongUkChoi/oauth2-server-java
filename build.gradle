@@ -5,8 +5,8 @@ buildscript {
 }
 
 apply plugin: 'java'
-//apply plugin: 'maven'
-apply plugin: 'maven-publish'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
@@ -18,52 +18,58 @@ repositories {
     jcenter()
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    archiveClassifier = 'sources'
+task javadocJar(type: Jar) {
+    archiveClassifier.set("javadoc")
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
     from sourceSets.main.allSource
 }
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier = 'javadoc'
-    from javadoc.destinationDir
+
+artifacts {
+    archives javadocJar, sourcesJar
 }
 
-// Create the pom configuration:
-def pomConfig = {
-    licenses {
-        license {
-            name "The MIT License (MIT)"
-            url "https://mit-license.org/"
-            distribution "repo"
-        }
-    }
-    developers {
-        developer {
-            id "byeongukchoi"
-            name "ByeongUkChoi"
-            email "cbw0916@gmail.com"
-        }
-    }
-    scm {
-        url "https://github.com/ByeongUkChoi/oauth2-server-java.git"
-    }
+signing {
+    sign configurations.archives
 }
 
-// Create the publication with the pom configuration:
-publishing {
-    publications {
-        MyPublication(MavenPublication) {
-            from components.java
-            artifact sourcesJar
-            artifact javadocJar
-            groupId project.group
-            artifactId project.archivesBaseName
-            version project.version
-            pom.withXml {
-                def root = asNode()
-                root.appendNode('description', 'A library for implementing an OAuth2 Server in java')
-                root.appendNode('name', 'oauth2-server-java')
-                root.appendNode('url', 'https://github.com/ByeongUkChoi/oauth2-server-java')
-                root.children().last() + pomConfig
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+            pom.project {
+                name 'oauth2 server java'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description 'A library for implementing an OAuth2 Server in java'
+                url 'https://github.com/ByeongUkChoi/oauth2-server-java'
+                scm {
+//                    connection 'scm:svn:http://foo.googlecode.com/svn/trunk/'
+//                    developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
+                    url 'https://github.com/ByeongUkChoi/oauth2-server-java'
+                }
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'ByeongukChoi'
+                        name 'ByeongUk Choi'
+                        email 'cbw0916@gmail.com'
+                    }
+                }
             }
         }
     }
