@@ -9,6 +9,9 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 apply plugin: 'maven-publish'
 
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
 version = '0.0.28'
