@@ -7,6 +7,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply plugin: 'maven-publish'
 
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
@@ -36,41 +37,51 @@ signing {
     sign configurations.archives
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-            pom.project {
-                name 'oauth2 server java'
-                packaging 'jar'
-                // optionally artifactId can be defined here
-                description 'A library for implementing an OAuth2 Server in java'
-                url 'https://github.com/ByeongUkChoi/oauth2-server-java'
-                scm {
-//                    connection 'scm:svn:http://foo.googlecode.com/svn/trunk/'
-//                    developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
-                    url 'https://github.com/ByeongUkChoi/oauth2-server-java'
-                }
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+
+            groupId = project.group
+//            artifactId = rootProject.name
+            artifactId = project.archivesBaseName
+            version = project.version
+
+            pom {
+                name = 'oauth2-server-java'
+                description = 'A library for implementing an OAuth2 Server in java'
+                url = 'https://github.com/ByeongUkChoi/oauth2-server-java'
                 licenses {
                     license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
                 developers {
                     developer {
-                        id 'ByeongukChoi'
-                        name 'ByeongUk Choi'
-                        email 'cbw0916@gmail.com'
+                        id = 'byeongukchoi'
+                        name = 'ByeongUk Choi'
+                        email = 'cbw0916@gmail.com'
                     }
                 }
+                scm {
+                    connection = 'scm:git:git://github.com/ByeongUkChoi/oauth2-server-java.git'
+//                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
+                    url = 'https://github.com/ByeongUkChoi/oauth2-server-java'
+                }
             }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username project.ossrhUsername
+                password project.ossrhPassword
+            }
+//            url 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
         }
     }
 }
