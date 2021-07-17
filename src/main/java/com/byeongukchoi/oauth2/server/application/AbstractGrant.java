@@ -11,7 +11,6 @@ public abstract class AbstractGrant {
      *
      * @param authorizationRequestDto request Data
      * @return TokenDto
-     * @throws Exception throw exception
      */
     public abstract TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto);
 }
