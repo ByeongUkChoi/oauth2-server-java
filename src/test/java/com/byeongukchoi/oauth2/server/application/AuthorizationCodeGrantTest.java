@@ -53,7 +53,7 @@ public class AuthorizationCodeGrantTest {
      *  grant_type, client_id, refresh_token, client_secret
      */
     @Test
-    public void testIssueTokenSuccess() throws Exception {
+    public void testIssueTokenSuccess() {
 
         // Mock
         // authorizationRequestDto
@@ -92,7 +92,7 @@ public class AuthorizationCodeGrantTest {
         assertSame(tokenDto.getRefreshToken(), expectedTokenDto.getRefreshToken());
     }
     @Test
-    public void testIssueTokenFailExpiredCode() throws Exception {
+    public void testIssueTokenFailExpiredCode() {
 
         // Mock
         // authorizationRequestDto

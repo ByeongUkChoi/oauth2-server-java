@@ -39,7 +39,7 @@ public class RefreshTokenGrantTest {
     private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     @Test
-    public void issueTokenSuccess() throws Exception {
+    public void issueTokenSuccess() {
 
         // Mock
         // authorizationRequestDto
@@ -78,7 +78,7 @@ public class RefreshTokenGrantTest {
         assertSame(tokenDto.getRefreshToken(), expectedTokenDto.getRefreshToken());
     }
     @Test
-    public void issueTokenFailExpiredRefreshToken() throws Exception {
+    public void issueTokenFailExpiredRefreshToken() {
 
         // Mock
         // authorizationRequestDto

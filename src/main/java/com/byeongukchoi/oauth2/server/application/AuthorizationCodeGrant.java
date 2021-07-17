@@ -8,6 +8,8 @@ import com.byeongukchoi.oauth2.server.domain.RefreshToken;
 import com.byeongukchoi.oauth2.server.domain.repository.AccessTokenRepository;
 import com.byeongukchoi.oauth2.server.domain.repository.AuthorizationCodeRepository;
 import com.byeongukchoi.oauth2.server.domain.repository.RefreshTokenRepository;
+import com.byeongukchoi.oauth2.server.error.exception.ErrorCode;
+import com.byeongukchoi.oauth2.server.error.exception.OAuth2ServerException;
 
 /**
  * AuthorizationCodeGrant
@@ -33,17 +35,17 @@ public class AuthorizationCodeGrant extends AbstractGrant {
      *  grant_type, client_id, refresh_token, client_secret
      */
     @Override
-    public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) throws Exception {
+    public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) {
         // 1. verify code and client
         // 1-1. get authorization code
         AuthorizationCode authorizationCode = authorizationCodeRepository.findByCodeAndClientId(authorizationRequestDto.getCode(), authorizationRequestDto.getClientId());
         if(authorizationCode == null) {
-            throw new Exception("Not Found Code");
+            throw new OAuth2ServerException(ErrorCode.NOT_FOUND_AUTHORIZATION_CODE);
         }
 
         // 1-2. check expired
         if(authorizationCode.isExpired()) {
-            throw new Exception("Expired Code");
+            throw new OAuth2ServerException(ErrorCode.EXPIRED_AUTHORIZATION_CODE);
         }
 
         // 2. set username
