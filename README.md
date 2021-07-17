@@ -2,21 +2,21 @@
 
 ## Installation
 
-The library is available on both Maven Central and Bintray, and the Javadoc is published [here](https://javadoc.io/doc/com.byeongukchoi/oauth2-server-java).
+The library is available on both Maven Central, and the Javadoc is published [here](https://javadoc.io/doc/com.github.byeongukchoi/oauth2-server-java).
 
-> Support up to 0.0.26
-### Maven (deprecated up to 0.0.26)
+> Support up to 0.0.28
+### Maven
 ```xml
 <dependency>
   <groupId>com.github.byeongukchoi</groupId>
   <artifactId>oauth2-server-java</artifactId>
-  <version>0.0.26</version>
+  <version>0.0.28</version>
   <type>pom</type>
 </dependency>
 ```
-### Gradle (deprecated up to 0.0.26)
+### Gradle
 ```gradle
-implementation 'com.github.byeongukchoi:oauth2-server-java:0.0.26'
+implementation 'com.github.byeongukchoi:oauth2-server-java:0.0.28'
 ```
 
 ## 개발 일기
