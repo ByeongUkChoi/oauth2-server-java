@@ -35,7 +35,7 @@ public class AuthorizationCodeGrant extends AbstractGrant {
      *  grant_type, client_id, refresh_token, client_secret
      */
     @Override
-    public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) {
+    public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) throws OAuth2ServerException {
         // 1. verify code and client
         // 1-1. get authorization code
         AuthorizationCode authorizationCode = authorizationCodeRepository.findByCodeAndClientId(authorizationRequestDto.getCode(), authorizationRequestDto.getClientId());

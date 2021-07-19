@@ -2,7 +2,7 @@ package com.byeongukchoi.oauth2.server.error.exception;
 
 import lombok.Getter;
 
-public class OAuth2ServerException extends RuntimeException {
+public class OAuth2ServerException extends Exception {
     @Getter
     private ErrorCode errorCode;
 

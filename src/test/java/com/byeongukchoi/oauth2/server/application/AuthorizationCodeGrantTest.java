@@ -8,6 +8,7 @@ import com.byeongukchoi.oauth2.server.domain.RefreshToken;
 import com.byeongukchoi.oauth2.server.domain.repository.AccessTokenRepository;
 import com.byeongukchoi.oauth2.server.domain.repository.AuthorizationCodeRepository;
 import com.byeongukchoi.oauth2.server.domain.repository.RefreshTokenRepository;
+import com.byeongukchoi.oauth2.server.error.exception.OAuth2ServerException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -53,7 +54,7 @@ public class AuthorizationCodeGrantTest {
      *  grant_type, client_id, refresh_token, client_secret
      */
     @Test
-    public void testIssueTokenSuccess() {
+    public void testIssueTokenSuccess() throws OAuth2ServerException {
 
         // Mock
         // authorizationRequestDto

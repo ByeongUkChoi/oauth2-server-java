@@ -31,7 +31,7 @@ public class RefreshTokenGrant extends AbstractGrant {
      *  grant_type, client_id, refresh_token, client_secret
      */
     @Override
-    public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) {
+    public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) throws OAuth2ServerException {
         // 1. verify refresh token and client
 
         // 1-1. get refresh token

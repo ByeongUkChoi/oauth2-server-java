@@ -6,6 +6,7 @@ import com.byeongukchoi.oauth2.server.domain.AccessToken;
 import com.byeongukchoi.oauth2.server.domain.RefreshToken;
 import com.byeongukchoi.oauth2.server.domain.repository.AccessTokenRepository;
 import com.byeongukchoi.oauth2.server.domain.repository.RefreshTokenRepository;
+import com.byeongukchoi.oauth2.server.error.exception.OAuth2ServerException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -39,7 +40,7 @@ public class RefreshTokenGrantTest {
     private RefreshTokenRepository<RefreshToken, String> refreshTokenRepository;
 
     @Test
-    public void issueTokenSuccess() {
+    public void issueTokenSuccess() throws OAuth2ServerException {
 
         // Mock
         // authorizationRequestDto
