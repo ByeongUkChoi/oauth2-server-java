@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 /**
@@ -22,7 +23,6 @@ import lombok.Setter;
  * 5183999
  */
 @Getter
-@Builder
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class TokenDto {
     private String tokenType;
@@ -33,4 +33,17 @@ public class TokenDto {
     @Setter
     private int refreshTokenExpiresIn;
     private String scope;
+
+    @Builder
+    public TokenDto(String tokenType,
+                    @NonNull String accessToken,
+                    int expiresIn,
+                    @NonNull String refreshToken,
+                    int refreshTokenExpiresIn) {
+        this.tokenType = tokenType;
+        this.accessToken = accessToken;
+        this.expiresIn = expiresIn;
+        this.refreshToken = refreshToken;
+        this.refreshTokenExpiresIn = refreshTokenExpiresIn;
+    }
 }
