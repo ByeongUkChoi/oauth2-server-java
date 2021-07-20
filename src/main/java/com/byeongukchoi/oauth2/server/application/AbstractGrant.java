@@ -9,9 +9,9 @@ import com.byeongukchoi.oauth2.server.error.exception.OAuth2ServerException;
  */
 public abstract class AbstractGrant {
     /**
-     * @param authorizationRequestDto
-     * @return
-     * @throws OAuth2ServerException
+     * @param authorizationRequestDto request dto
+     * @return tokenDto
+     * @throws OAuth2ServerException custom exception
      */
     public abstract TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) throws OAuth2ServerException;
 }

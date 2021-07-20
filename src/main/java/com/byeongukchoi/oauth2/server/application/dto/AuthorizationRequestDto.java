@@ -1,6 +1,5 @@
 package com.byeongukchoi.oauth2.server.application.dto;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,6 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@Builder
 public class AuthorizationRequestDto {
     private String grantType;
     private String clientId;

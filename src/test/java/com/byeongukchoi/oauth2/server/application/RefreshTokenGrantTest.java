@@ -68,15 +68,9 @@ public class RefreshTokenGrantTest {
         RefreshTokenGrant refreshTokenGrant = new RefreshTokenGrant(accessTokenRepository, refreshTokenRepository);
         TokenDto tokenDto = refreshTokenGrant.issueToken(authorizationRequestDto);
 
-        // expected
-        TokenDto expectedTokenDto = TokenDto.builder()
-                .accessToken(ACCESS_TOKEN)
-                .refreshToken(REFRESH_TOKEN)
-                .build();
-
         // verify
-        assertSame(tokenDto.getAccessToken(), expectedTokenDto.getAccessToken());
-        assertSame(tokenDto.getRefreshToken(), expectedTokenDto.getRefreshToken());
+        assertSame(tokenDto.getAccessToken(), ACCESS_TOKEN);
+        assertSame(tokenDto.getRefreshToken(), REFRESH_TOKEN);
     }
     @Test
     public void issueTokenFailExpiredRefreshToken() {

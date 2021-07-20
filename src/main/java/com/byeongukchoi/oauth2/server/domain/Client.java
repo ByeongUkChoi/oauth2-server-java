@@ -6,5 +6,5 @@ import com.byeongukchoi.oauth2.server.application.dto.AuthorizationRequestDto;
  * Client interface
  */
 public interface Client {
-    public boolean verifyClient(AuthorizationRequestDto authorizationRequestDto);
+    boolean verifyClient(AuthorizationRequestDto authorizationRequestDto);
 }
