@@ -5,7 +5,10 @@ package com.byeongukchoi.oauth2.server.domain;
  */
 public interface AuthorizationCode {
     String getCode();
+
     String getUsername();
+
     boolean isExpired();
+
     String getClientId();
 }

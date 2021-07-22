@@ -20,15 +20,15 @@ public class RefreshTokenGrant extends AbstractGrant {
     public RefreshTokenGrant(
             AccessTokenRepository<AccessToken, String> accessTokenRepository,
             RefreshTokenRepository<RefreshToken, String> refreshTokenRepository) {
-            this.accessTokenRepository = accessTokenRepository;
+        this.accessTokenRepository = accessTokenRepository;
         this.refreshTokenRepository = refreshTokenRepository;
     }
 
     /**
      * authorization_code
-     *  grant_type, client_id, redirect_uri, code, client_secret
-     *  refresh_token
-     *  grant_type, client_id, refresh_token, client_secret
+     * grant_type, client_id, redirect_uri, code, client_secret
+     * refresh_token
+     * grant_type, client_id, refresh_token, client_secret
      */
     @Override
     public TokenDto issueToken(AuthorizationRequestDto authorizationRequestDto) throws OAuth2ServerException {
@@ -36,12 +36,12 @@ public class RefreshTokenGrant extends AbstractGrant {
 
         // 1-1. get refresh token
         RefreshToken refreshToken = refreshTokenRepository.findByTokenAndClientId(authorizationRequestDto.getRefreshToken(), authorizationRequestDto.getClientId());
-        if(refreshToken == null) {
+        if (refreshToken == null) {
             throw new OAuth2ServerException(ErrorCode.NOT_FOUND_REFRESH_TOKEN);
         }
 
         // 1-2. check expired
-        if(refreshToken.isExpired()) {
+        if (refreshToken.isExpired()) {
             throw new OAuth2ServerException(ErrorCode.EXPIRED_REFRESH_TOKEN);
         }
 

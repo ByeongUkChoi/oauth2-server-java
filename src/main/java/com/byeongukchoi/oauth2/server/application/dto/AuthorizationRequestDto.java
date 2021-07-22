@@ -7,10 +7,10 @@ import lombok.Setter;
  * AuthorizationRequestDto
  */
 @Getter
-@Setter
 public class AuthorizationRequestDto {
     private String grantType;
     private String clientId;
+    @Setter
     private String username;
     private String redirectUri;
     private String code;

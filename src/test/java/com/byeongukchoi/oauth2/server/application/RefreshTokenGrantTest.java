@@ -72,6 +72,7 @@ public class RefreshTokenGrantTest {
         assertSame(tokenDto.getAccessToken(), ACCESS_TOKEN);
         assertSame(tokenDto.getRefreshToken(), REFRESH_TOKEN);
     }
+
     @Test
     public void issueTokenFailExpiredRefreshToken() {
 
@@ -84,15 +85,13 @@ public class RefreshTokenGrantTest {
 
         // refreshToken
         when(refreshToken.isExpired()).thenReturn(true);
-        // refreshtokenRepository
+        // refreshTokenRepository
         when(refreshTokenRepository.findByTokenAndClientId(eq(REFRESH_TOKEN), eq(CLIENT_ID))).thenReturn(refreshToken);
 
         // issue token
         RefreshTokenGrant refreshTokenGrant = new RefreshTokenGrant(accessTokenRepository, refreshTokenRepository);
 
         // expected exception
-        assertThrows(Exception.class, () -> {
-            refreshTokenGrant.issueToken(authorizationRequestDto);
-        });
+        assertThrows(Exception.class, () -> refreshTokenGrant.issueToken(authorizationRequestDto));
     }
 }

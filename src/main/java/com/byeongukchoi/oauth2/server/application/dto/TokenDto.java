@@ -8,7 +8,6 @@ import lombok.NonNull;
 import lombok.Setter;
 
 /**
- *
  * Access Token
  * Kv2gk5ZV3Hpc2En6KGeu0No9CvzcEDl9yM6Q3Qo9c04AAAFzZLkR5w
  * Token Type

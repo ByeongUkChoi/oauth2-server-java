@@ -5,6 +5,8 @@ package com.byeongukchoi.oauth2.server.domain;
  */
 public interface AccessToken {
     String getToken();
+
     boolean isExpired();
+
     int getExpiresIn();
 }
