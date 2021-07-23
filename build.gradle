@@ -14,7 +14,7 @@ targetCompatibility = '11'
 
 archivesBaseName = 'oauth2-server-java'
 group = 'com.github.byeongukchoi'
-version = '0.0.31'
+version = '0.0.32'
 description = 'OAuth2 server library'
 
 repositories {
